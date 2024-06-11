@@ -31,7 +31,7 @@ class Auth extends CI_Controller {
     if ($user) {
         if ($password == $user['password']) {
        
-            $this->session->set_userdata(['username' => $username]);
+            $this->session->set_userdata(['username' => $username, 'user_id' => $user['id']]);
             redirect('nilai'); 
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');

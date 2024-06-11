@@ -9,8 +9,19 @@ class Nilai extends CI_Controller {
         $this->load->model('m_Nilai');
     }
     public function index(){
+        $user_id = $this->session->userdata('user_id');
 
-        $data['nilai1'] = $this->m_Nilai->tampil_data()->result();
+        if ($user_id == 1) {
+            // Jika user_id adalah 1, ambil data dari tabel nilai1
+            $data['nilai'] = $this->m_Nilai->tampil_data($user_id, 'nilai1')->result();
+        } elseif ($user_id == 2) {
+            // Jika user_id adalah 2, ambil data dari tabel nilai2
+            $data['nilai'] = $this->m_Nilai->tampil_data($user_id, 'nilai2')->result();
+        } else {
+            // Tambahkan penanganan untuk user_id lainnya jika diperlukan
+            $data['nilai'] = [];
+        }
+        
         $this->load->view('Halaman/rapot', $data);
     }
 }

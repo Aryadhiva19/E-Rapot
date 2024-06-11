@@ -6,7 +6,7 @@
     <title>Rapot</title>
 </head>
 <body>
-    <h1>Nilai Rapot</h1>
+    <h1>Nilai Rapot </h1>
     <table border="1">
         <tr>
             <th>NO</th>
@@ -16,7 +16,7 @@
         </tr>
         <?php
         $no = 1;
-        foreach ($nilai1 as $data) {
+        foreach ($nilai as $data) {
         ?>
         <tr>
             <td><?php echo $no++; ?></td>

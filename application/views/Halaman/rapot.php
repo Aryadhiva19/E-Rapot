@@ -10,20 +10,23 @@
     <table border="1">
         <tr>
             <th>NO</th>
-            <th>Mata Plejaran</th>
+            <th>Mata Pelajaran</th>
             <th>Nilai</th>
-            <th>Predikat</th>   
+            <th>Predikat</th>
         </tr>
         <?php
-        $NO =1;
+        $no = 1;
+        foreach ($nilai1 as $data) {
         ?>
         <tr>
-            <td><?php echo $no++ ?></td>
-            <td><?php echo $data-> Mata_Pelajaran ?></td>
-            <td><?php echo $no++ ?></td>
-            <td><?php echo $no++ ?></td>
+            <td><?php echo $no++; ?></td>
+            <td><?php echo $data->Mata_Pelajaran; ?></td>
+            <td><?php echo $data->Nilai; ?></td>
+            <td><?php echo $data->Predikat; ?></td>
         </tr>
-
+        <?php
+        }
+        ?>
     </table>
 </body>
 </html>

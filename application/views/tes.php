@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>gagal</h1>
+    <h1>Halaman Admin</h1>
 </body>
 </html>

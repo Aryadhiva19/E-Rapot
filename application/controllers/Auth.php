@@ -21,29 +21,45 @@ class Auth extends CI_Controller {
     }
 
     public function login()
-    {
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
+{
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
 
+    // Check in user table
+    $user = $this->db->get_where('user', ['username' => $username])->row_array();
 
-        $user = $this->db->get_where('user', ['username' => $username])->row_array();
+    if ($user) {
+        if ($password == $user['password']) {
+       
+            $this->session->set_userdata(['username' => $username]);
+            redirect('nilai'); 
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+            redirect('Auth');
+        }
+    } else {
 
-        if($user) {
-            // Verifikasi password tanpa hashing
-            if($password == $user['password']) {
-                // Jika password benar
-                // Set sesi atau lakukan tindakan login lainnya
+        $admin = $this->db->get_where('admin', ['username' => $username])->row_array();
+
+        if ($admin) {
+     
+            if ($password == $admin['password']) {
+              
                 $this->session->set_userdata(['username' => $username]);
-                redirect('rapot'); // Arahkan ke halaman yang sesuai setelah login
+                redirect('tes'); 
             } else {
-                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('Auth');
             }
         } else {
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Username tidak terdaftar</div>');
+          
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username tidak terdaftar</div>');
             redirect('Auth');
         }
     }
+
+
+}
     public function tes()
     {
         $this->load->view('tes');

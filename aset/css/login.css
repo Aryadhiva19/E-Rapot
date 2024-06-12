@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#fffafa ;
+}
+
+.kotak {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  
+}
+
+.item {
+    background-color: #337ab7; 
+    padding:  110px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.item h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.item label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: white;
+    display: block;
+  
+    
+}
+
+.item .nama {
+    margin: 10px;
+    align-content: center;
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+    
+}
+
+.item .kirim {
+    margin-top: 30px;
+    padding:  10px 20px;
+    border: none;;
+    border-radius: 4px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
